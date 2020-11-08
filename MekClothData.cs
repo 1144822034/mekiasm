@@ -3,6 +3,7 @@ using Game;
 
 namespace Mekiasm
 {
+
    public class MekClothData
     {
 		public int Index;
