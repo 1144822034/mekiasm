@@ -1,0 +1,159 @@
+<Mekiasm>
+<!--database.xml changes-->
+<Parameter Name="Class" Guid="8b3d07dc-6498-4691-9686-cf4edabb8f3f" new-Value="Mekiasm.ComponentNGui" Type="string" />
+
+<!--Subsystem regist-->
+<ProjectTemplate Name="Project" Guid="85023bf8-1c90-4dd1-9442-e6c13691d078">
+	<MemberSubsystemTemplate Name="MekiasmSingleChestBehavior" Guid="e5e2c7cf-33b2-4b66-b831-9f0d143139ef" InheritanceParent="5dbaf418-3b48-4623-b93c-8340e1cc97df"/>
+	<MemberSubsystemTemplate Name="AtomicDecomposerBehavior" Guid="779dad18-3ddb-4659-83a5-23aa063d39a3" InheritanceParent="1a6b2af0-6eaa-4d7d-b8e5-c1648a8b5822"/>	
+	<MemberSubsystemTemplate Name="MekiasmMain" Guid="64b81ed0-2205-4fe9-a1cb-bb808a09eb3d" InheritanceParent="fefb9590-4972-4893-b02a-76063611b745">
+	<Parameter Name="Class" Value="Mekiasm.SubsystemItemBlockBase" Type="string" />
+	</MemberSubsystemTemplate>
+	<MemberSubsystemTemplate Name="MekiasmElectric" Guid="8d6646f6-91be-4ecb-94b8-47de34527aef" InheritanceParent="3a2ad8bd-7425-4e88-a384-457de550ab59"/>
+	<MemberSubsystemTemplate Name="MekiasmAlpha" Guid="9600f7da-b194-460c-9391-28b37c7ec5f6" InheritanceParent="fefb9590-4972-4893-b02a-76063611b745">
+	<Parameter Name="Class" Value="Mekiasm.SubsystemItemAlphaBlockBehavior" Type="string" />
+	</MemberSubsystemTemplate>
+	<MemberSubsystemTemplate Name="MekiasmFluid" Guid="c4f0c6e4-7f27-4832-92d7-3fef5d5ed139" InheritanceParent="fefb9590-4972-4893-b02a-76063611b745">
+	<Parameter Name="Class" Value="Mekiasm.SubsystemItemFliudBehavior" Type="string" />
+	</MemberSubsystemTemplate>
+	<MemberSubsystemTemplate Name="MekiasmPlant" Guid="7abab142-d37a-42fe-9b46-25f679d5b151" InheritanceParent="fefb9590-4972-4893-b02a-76063611b745">
+	<Parameter Name="Class" Value="Mekiasm.SubsystemMekPlantsBehavior" Type="string" />
+	</MemberSubsystemTemplate>	
+</ProjectTemplate>
+
+<EntityTemplate Name="Player" Guid="4be6c1c5-d65d-4537-8a8b-a391969e6dc2">
+    <MemberComponentTemplate Name="MekPlayerUpdate" Guid="eddfe8a0-6676-438d-8a23-a59a73a1fe0e" InheritanceParent="b05700ed-7e4e-4679-98f5-b597f421496b">
+    <Parameter Name="Class" Guid="1ff21015-3a77-4250-bb2a-82c94452ab9e" Value="Mekiasm.ComponentPlayUpdate" Type="string" />
+    </MemberComponentTemplate>
+    <MemberComponentTemplate Name="ComponentBuff" Guid="25339393-4543-4e2b-8eca-c3658b6d20ac" InheritanceParent="b05700ed-7e4e-4679-98f5-b597f421496b">
+    <Parameter Name="Class" Guid="945edc0b-6dd0-45d5-8470-9df97efa7f5b" Value="Mekiasm.ComponentBuff" Type="string" />
+    </MemberComponentTemplate>
+</EntityTemplate>
+
+<!--实体内容注册-->
+<Folder Name="Entities" Guid="5fcdf35f-7001-442c-883e-e0502b15d291">
+<EntityTemplate Name="SingleChest" Guid="0855a017-af17-4955-81fa-aafaf97b92bd"><!--储物柜-->
+      <MemberComponentTemplate Name="BlockEntity" Guid="3d156ce8-e40c-44f1-9606-ec105a2881e8" InheritanceParent="09a85cba-d94e-41b8-9497-f20ed942c17e" />
+	  <MemberComponentTemplate Name="NNChest" Guid="54299927-f05f-4c78-be74-a6fb8c0ec892" InheritanceParent="a92b9724-05a6-4741-b971-9290aafea8dc"/>
+</EntityTemplate>
+<EntityTemplate Name="BaseEnergyBlock" Guid="5508eb69-b7c3-4b44-9f32-48ada2d6f9fc"><!--能量立方-->
+      <MemberComponentTemplate Name="BlockEntity" Guid="476c8448-0a50-419d-8cef-a2184f92a90f" InheritanceParent="09a85cba-d94e-41b8-9497-f20ed942c17e" />
+	  <MemberComponentTemplate Name="EnergyBlock" Guid="778a10e0-2449-46ee-a329-bea41a8212dd" InheritanceParent="c26eacd2-87cd-48be-8736-f38a7653ec63"/>
+	</EntityTemplate>
+<EntityTemplate Name="SolarEnergyBlock" Guid="5386fbf3-57aa-40ac-9b23-10a3160d35a1"><!--ASP太阳能发电-->
+      <MemberComponentTemplate Name="BlockEntity" Guid="7722a7dc-81da-49ff-8709-c87b823d6d5b" InheritanceParent="09a85cba-d94e-41b8-9497-f20ed942c17e" />
+	  <MemberComponentTemplate Name="EnergyBlock" Guid="214d9355-2f48-4136-ba16-501e24fe3d12" InheritanceParent="7bc5d49b-bb0f-4b35-8547-2269839e55ae"/>
+</EntityTemplate>
+<EntityTemplate Name="CoalGeneratorBlock" Guid="1644107e-1fff-4d93-9828-59ec7c26c4a7"><!--燃煤发电-->
+      <MemberComponentTemplate Name="BlockEntity" Guid="91439b45-61f1-4b83-b235-f846c7c50848" InheritanceParent="09a85cba-d94e-41b8-9497-f20ed942c17e" />
+	  <MemberComponentTemplate Name="EnergyBlock" Guid="c2fa6d77-8585-48dc-924c-7d6302295ec9" InheritanceParent="5d633d4c-3fdb-49ea-bcd0-4c4e616d0298"/>
+</EntityTemplate>
+<EntityTemplate Name="CrusherBlock" Guid="ff1d9826-530a-44d7-b04c-4ee64ac179d8"><!--粉碎机-->
+      <MemberComponentTemplate Name="BlockEntity" Guid="5ac268a7-86f3-4fbd-af50-45274390b607" InheritanceParent="09a85cba-d94e-41b8-9497-f20ed942c17e" />
+	  <MemberComponentTemplate Name="EnergyBlock" Guid="a4e6b60c-6f4e-4823-beb7-57666d5ed9d3" InheritanceParent="99f9fe11-1fc5-420a-a44c-402206059827"/>
+</EntityTemplate>
+<EntityTemplate Name="EnrichBlock" Guid="029c237d-19e0-4006-915e-380ad1a834f0"><!--富集仓-->
+      <MemberComponentTemplate Name="BlockEntity" Guid="f4de202a-dce7-452f-ad8c-509245f0d6b2" InheritanceParent="09a85cba-d94e-41b8-9497-f20ed942c17e" />
+	  <MemberComponentTemplate Name="EnergyBlock" Guid="750ee405-7735-4352-9312-17481471164a" InheritanceParent="9a27332c-6f94-4aea-a3f3-0dcd6613a1d7"/>
+</EntityTemplate>
+<EntityTemplate Name="MekSmeltBlock" Guid="385bcd0a-5b3c-4726-b30d-c47c3889bbba"><!--充能冶炼炉-->
+      <MemberComponentTemplate Name="BlockEntity" Guid="bf43252f-5d70-41aa-b50c-9f69dde54845" InheritanceParent="09a85cba-d94e-41b8-9497-f20ed942c17e" />
+	  <MemberComponentTemplate Name="EnergyBlock" Guid="0e9dbf29-4b82-41c3-ac62-ae6089a2ad4d" InheritanceParent="7ede4141-36c0-41a8-bd77-f10e7a4c471f"/>
+</EntityTemplate>
+<EntityTemplate Name="MamufactoryBlock" Guid="dbd25853-7d80-4103-86cf-21350f8be4a0"><!--制造厂-->
+      <MemberComponentTemplate Name="BlockEntity" Guid="9be72651-9ea8-42cd-91c4-c8953c562663" InheritanceParent="09a85cba-d94e-41b8-9497-f20ed942c17e" />
+	  <MemberComponentTemplate Name="EnergyBlock" Guid="6e30ae8c-6b93-4f49-baa5-a44319268658" InheritanceParent="4eed441a-9e70-485d-9952-0d901e482b9a"/>
+</EntityTemplate>
+<EntityTemplate Name="AlloyBlock" Guid="7b17d71d-0085-4c88-83d9-8ba7845e04d2"><!--合金炉-->
+      <MemberComponentTemplate Name="BlockEntity" Guid="20d03304-977f-45c6-b566-8a617348cc9a" InheritanceParent="09a85cba-d94e-41b8-9497-f20ed942c17e" />
+	  <MemberComponentTemplate Name="EnergyBlock" Guid="324c9d93-7b13-4308-8a9c-337641822c9d" InheritanceParent="0330754f-f16c-49e2-84cf-8fd09f916462"/>
+</EntityTemplate>
+<EntityTemplate Name="MekDynamicBlock" Guid="52825f7b-7f6c-4a66-a138-f5df4587df45"><!--动态储罐-->
+      <MemberComponentTemplate Name="BlockEntity" Guid="a925ab60-8a99-4469-9a75-24e94b45de5b" InheritanceParent="09a85cba-d94e-41b8-9497-f20ed942c17e" />
+	  <MemberComponentTemplate Name="FluidBlock" Guid="435f0b23-cf2d-4da4-9e8f-00258254e2c1" InheritanceParent="da8ab4f3-563b-4e7a-993a-cab19739197e"/>
+</EntityTemplate>
+
+</Folder>
+<Folder Name="Gameplay" Guid="d3d4b692-acc9-4128-9b99-a5acf1de1fbb">
+<ComponentTemplate Name="SingleChest" Guid="a92b9724-05a6-4741-b971-9290aafea8dc" InheritanceParent="7312ec8c-10c7-4133-85b4-4a35bd44c956">
+	<Parameter Name="SlotsCount" Value="1" Type="int" />
+	<Parameter Name="Class" Value="Mekiasm.ComponentSingleChest" Type="string" />
+</ComponentTemplate>
+<ComponentTemplate Name="EnergyBlock" Guid="c26eacd2-87cd-48be-8736-f38a7653ec63" InheritanceParent="a84abe96-3694-4485-8a07-90ce04913784">
+	<Parameter Name="Class" Value="Mekiasm.ComponentBaseEnergy" Type="string" />
+</ComponentTemplate>
+<ComponentTemplate Name="SolarEnergyBlock" Guid="7bc5d49b-bb0f-4b35-8547-2269839e55ae" InheritanceParent="a84abe96-3694-4485-8a07-90ce04913784">
+	<Parameter Name="Class" Value="Mekiasm.CptEgySolarGtor" Type="string" />
+</ComponentTemplate>
+<ComponentTemplate Name="CrusherBlock" Guid="99f9fe11-1fc5-420a-a44c-402206059827" InheritanceParent="a84abe96-3694-4485-8a07-90ce04913784">
+<Parameter Name="SlotsCount" Value="2" Type="int" />
+<Parameter Name="Per" Value="0" Type="int" />
+<Parameter Name="Class" Value="Mekiasm.ComponentCrusher" Type="string" />
+</ComponentTemplate>
+<ComponentTemplate Name="EnrichBlock" Guid="9a27332c-6f94-4aea-a3f3-0dcd6613a1d7" InheritanceParent="99f9fe11-1fc5-420a-a44c-402206059827">
+<Parameter Name="Class" Value="Mekiasm.ComponentEnrich" Type="string" />
+</ComponentTemplate>
+<ComponentTemplate Name="MekSmeltBlock" Guid="7ede4141-36c0-41a8-bd77-f10e7a4c471f" InheritanceParent="99f9fe11-1fc5-420a-a44c-402206059827">
+<Parameter Name="Class" Value="Mekiasm.ComponentSmelt" Type="string" />
+</ComponentTemplate>
+<ComponentTemplate Name="MamufactoryBlock" Guid="4eed441a-9e70-485d-9952-0d901e482b9a" InheritanceParent="99f9fe11-1fc5-420a-a44c-402206059827">
+<Parameter Name="Class" Value="Mekiasm.ComponentManufactory" Type="string" />
+</ComponentTemplate>
+<ComponentTemplate Name="AlloyBlock" Guid="0330754f-f16c-49e2-84cf-8fd09f916462" InheritanceParent="99f9fe11-1fc5-420a-a44c-402206059827">
+<Parameter Name="SlotsCount" Value="3" Type="int" />
+<Parameter Name="Class" Value="Mekiasm.ComponentAlloy" Type="string" />
+</ComponentTemplate>
+<ComponentTemplate Name="MekDynamicBlock" Guid="da8ab4f3-563b-4e7a-993a-cab19739197e" InheritanceParent="0c441eb0-f9a3-4b9e-ae86-bebf0ce5a402">
+	<Parameter Name="Class" Value="Mekiasm.ComponentMekDynamic" Type="string" />
+</ComponentTemplate>
+<ComponentTemplate Name="CoalGeneratorBlock" Guid="5d633d4c-3fdb-49ea-bcd0-4c4e616d0298" InheritanceParent="a84abe96-3694-4485-8a07-90ce04913784">
+	<Parameter Name="SlotsCount" Value="1" Type="int" />
+	<Parameter Name="Class" Value="Mekiasm.ComponentCoalGenerator" Type="string" />
+	<Parameter Name="fuelTime" Value="0" Type="int" />
+	<Parameter Name="fullfuelTime" Value="1" Type="int" />
+</ComponentTemplate>
+<ComponentTemplate Name="EnergyMachine" Guid="a84abe96-3694-4485-8a07-90ce04913784" InheritanceParent="b05700ed-7e4e-4679-98f5-b597f421496b">
+<!--最大电量--><Parameter Name="MaxQuantity" Value="1" Type="int"/>
+<!--电量--><Parameter Name="Quantity" Value="0" Type="int" />
+<!--模式--><Parameter Name="Mode" Value="0" Type="int" />
+<!--物品数量--><ParameterSet Name="Slots" />
+<!--物品信息--><Parameter Name="SlotsCount" Value="0" Type="int" />
+<Parameter Name="Class" Value="Mekiasm.ComponentEnergyMachine" Type="string" />
+</ComponentTemplate>
+<ComponentTemplate Name="ComponentFluidStore" Guid="0c441eb0-f9a3-4b9e-ae86-bebf0ce5a402" InheritanceParent="b05700ed-7e4e-4679-98f5-b597f421496b">
+<!--最大储存量--><Parameter Name="MaxQuantity" Value="1" Type="int"/>
+<!--当前储存量--><Parameter Name="Quantity" Value="0" Type="int" />
+<!--当前模式--><Parameter Name="Mode" Value="0" Type="int" />
+<!--物品数量--><ParameterSet Name="Slots" />
+<!--物品信息--><Parameter Name="SlotsCount" Value="0" Type="int" />
+</ComponentTemplate>
+<!--衣服重写-->
+ <ComponentTemplate Name="MekClothing"  Guid="0b7e0006-aa65-464f-9c5a-c733b5d8a09a" InheritanceParent="b05700ed-7e4e-4679-98f5-b597f421496b">
+          <ParameterSet Name="Clothes"  Guid="771ccdab-6f35-440a-9b34-154fea6e4713">
+            <Parameter Name="Legs" Guid="ed71324d-57a6-4bcd-a884-88cd774e67c7" Value="" Type="string" />
+            <Parameter Name="Feet" Guid="3138203b-b236-4ddd-8d73-58d5f1cb495d" Value="" Type="string" />
+            <Parameter Name="Torso" Guid="db21f690-c3c6-4d29-841f-6387142d32a2" Value="" Type="string" />
+            <Parameter Name="Head" Guid="bcbf8616-f015-481a-ac45-448b0be08959" Value="" Type="string" />
+          </ParameterSet>
+          <Parameter Name="Class" Guid="8f3e909f-9a09-42f9-aafe-7354e0a5d3ca" Value="Mekiasm.ComponentClothing" Type="string" />
+        </ComponentTemplate>
+</Folder>
+
+<!--方块行为注册-->
+<Folder Name="BlockBehaviors" Guid="00c97f0f-731e-481c-9909-eae9cc5ee940">
+	<SubsystemTemplate Name="MekiasmSingleChestBehaviorA" Guid="5dbaf418-3b48-4623-b93c-8340e1cc97df" InheritanceParent="fefb9590-4972-4893-b02a-76063611b745">
+		<ParameterSet Name="PointInfo"/>
+		<Parameter Name="Class" Value="Mekiasm.SubsystemSingleChestBehavoir" Type="string" />
+	</SubsystemTemplate>
+	<SubsystemTemplate Name="AtomicDecomposerBehavior" Guid="1a6b2af0-6eaa-4d7d-b8e5-c1648a8b5822" InheritanceParent="fefb9590-4972-4893-b02a-76063611b745">
+		<Parameter Name="Class" Value="Mekiasm.SubsystemAtomicDecomposerBehavior" Type="string" />
+	</SubsystemTemplate>
+		<SubsystemTemplate Name="MekiasmElectric" Guid="3a2ad8bd-7425-4e88-a384-457de550ab59" InheritanceParent="fefb9590-4972-4893-b02a-76063611b745">
+		<ParameterSet Name="Devices"/>
+		<ParameterSet Name="tranmitPoints"/>	
+		<ParameterSet Name="MutiDevices"/>
+		<Parameter Name="Class" Guid="b6215334-0a27-4e9a-a73a-bc2cb6d237ee" Value="Mekiasm.SubsystemItemElectricBehavior" Type="string" />
+	</SubsystemTemplate>
+</Folder>
+
+</Mekiasm>
